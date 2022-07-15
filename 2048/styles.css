@@ -1,0 +1,92 @@
+
+#main {
+	display: flex;
+}
+#wrapper {
+	width: 560px;
+	border: 6px solid #ccc;
+	display: flex;
+	flex-wrap: wrap;
+	padding-bottom: 10px;
+}
+
+.cell {
+	flex-shrink: 0;
+	width: 100px;
+	height: 100px;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #999;
+	font-size: 30px;
+	margin: 10px 0 0 10px;
+	color: #fff;
+	border-radius: 10px;
+}
+
+.hot {
+	animation: fadein .1s linear;
+}
+
+@keyframes fadein {
+	from {
+		transform: scale(0.5);
+	}
+	to {
+		transform: scale(1);
+	}
+}
+
+.cell[data-content='2'] {
+	background: #C1B2d4;
+}
+.cell[data-content='4'] {
+	background: #C28747;
+}
+.cell[data-content='8'] {
+	background: #C1b344;
+}
+.cell[data-content='16'] {
+	background: #8FC247;
+}
+.cell[data-content='32'] {
+	background: #5AC247;
+}
+.cell[data-content='64'] {
+	background: #3DB864;
+}
+.cell[data-content='128'] {
+	background: #3CB496;
+}
+.cell[data-content='256'] {
+	background: #3E9ABB;
+}
+.cell[data-content='512'] {
+	background: #226751;
+}
+.cell[data-content='1024'] {
+	background: #194D1B;
+}
+.cell[data-content='2048'] {
+	background: #113211;
+}
+.cell[data-content='4096'] {
+	background: gray;
+}
+.cell[data-content='8192'] {
+	background: red;
+}
+
+.score-wrapper {
+	padding-left: 50px;
+}
+#score {
+	color: red;
+}
+
+
+
+
+
