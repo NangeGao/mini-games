@@ -3,12 +3,41 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Mini Games</title>
-	<style></style>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		ul.list {
+			display: flex;
+			padding: 20px;
+			justify-content: center;
+			align-items: center;
+		}
+		ul.list li a {
+			display: block;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+		ul.list li a img {
+			width: 200px;
+			height: 200px;
+		}
+		ul.list li a span {
+			display: block;
+			height: 0;
+			text-indent: -100em;
+		}
+	</style>
 </head>
 <body>
-	<ul>
+	<ul class="list">
 		<li>
-			<a href="./2048/index.html">2048</a>
+			<a href="./2048/index.html">
+				<img src="./2048/2048.png" alt="2048" />
+				<span>2048</span>
+			</a>
 		</li>
 	</ul>
 </body>
