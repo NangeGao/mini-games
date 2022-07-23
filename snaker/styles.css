@@ -1,0 +1,158 @@
+
+#main {
+	display: flex;
+}
+#wrapper {
+	border: 6px solid #ccc;
+	display: flex;
+	flex-wrap: wrap;
+	padding-bottom: 2px;
+}
+
+.cell {
+	flex-shrink: 0;
+	width: 20px;
+	height: 20px;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #999;
+	font-size: 30px;
+	margin: 2px 0 0 2px;
+	color: #fff;
+	border-radius: 1px;
+}
+
+.cell-cookie {
+	background-color: #f60;
+	border-color: #f60;
+	animation: jump-cookie 5s infinite linear;
+
+}
+.cell-snaker {
+	background-color: #4fbf78;
+	border-color: #4fbf78;
+}
+.cell-snaker-head {
+	background-color: #309676;
+	border-color: #309676;
+	position: relative;
+}
+.right .cell-snaker-head::before,
+.right .cell-snaker-head::after {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	background-color: #318676;
+	border: 1px solid white;
+	box-sizing: border-box;
+	top: -3px;
+	right: -5px;
+}
+.right .cell-snaker-head::after {
+	top: auto;
+	bottom: -3px;
+}
+
+.down .cell-snaker-head::before,
+.down .cell-snaker-head::after {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	background-color: #318676;
+	border: 1px solid white;
+	box-sizing: border-box;
+	right: -3px;
+	bottom: -5px;
+}
+.down .cell-snaker-head::after {
+	right: auto;
+	left: -3px;
+}
+
+.left .cell-snaker-head::before,
+.left .cell-snaker-head::after {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	background-color: #318676;
+	border: 1px solid white;
+	box-sizing: border-box;
+	top: -3px;
+	left: -5px;
+}
+.left .cell-snaker-head::after {
+	top: auto;
+	bottom: -3px;
+}
+
+.up .cell-snaker-head::before,
+.up .cell-snaker-head::after {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	background-color: #318676;
+	border: 1px solid white;
+	box-sizing: border-box;
+	left: -3px;
+	top: -5px;
+}
+.up .cell-snaker-head::after {
+	left: auto;
+	right: -3px;
+}
+
+
+@keyframes jump-cookie {
+	0% {
+		transform: rotate(0deg);
+	}
+	10% {
+		transform: rotate(180deg);
+	}
+	37% {
+		transform: rotate(180deg);
+	}
+	41% {
+		border-radius: 10px;
+		transform: scale(1.5) rotate(180deg);
+	}
+	44% {
+		transform: scale(1) rotate(180deg);
+	}
+	65% {
+		transform: rotate(180deg);
+	}
+	75% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+.score-wrapper {
+	padding-left: 50px;
+}
+#score {
+	color: red;
+}
+
+
+
+
+

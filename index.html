@@ -16,24 +16,35 @@
 			align-items: center;
 		}
 		ul.list li {
-			background: #ffffe4;
+			text-align: center;
+			margin: 30px;
 		}
 		ul.list li a {
 			display: block;
+			text-decoration: none;
+			color: #aaa;
+			font-size: 24px;
+		}
+		ul.list li a p {
+			width: 200px;
+			height: 200px;
+			overflow: hidden;
 			border: 1px solid #ccc;
 			border-radius: 5px;
-			text-decoration: none;
-			color: #090;
-			font-size: 24px;
+		}
+		ul.list li a:hover {
+			color: #4fbf78;
+		}
+		ul.list li a:hover p {
+			border-color: #4fbf78;
+			box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 		}
 		ul.list li a img {
 			display: block;
-			width: 200px;
-			height: 200px;
+			width: 100%;
 		}
 		ul.list li a span {
-			display: none;
-			line-height: 3em;
+			line-height: 2em;
 		}
 	</style>
 </head>
@@ -41,8 +52,18 @@
 	<ul class="list">
 		<li>
 			<a href="./2048/index.html">
-				<img src="./2048/2048.png" alt="2048" />
+				<p>
+					<img src="./2048/2048.png" alt="2048" />
+				</p>
 				<span>2048</span>
+			</a>
+		</li>
+		<li>
+			<a href="./snaker/index.html">
+				<p>
+					<img src="./snaker/snaker.jpeg" alt="snaker" style="margin-top: -43%;" />
+				</p>
+				<span>Snaker</span>
 			</a>
 		</li>
 	</ul>
