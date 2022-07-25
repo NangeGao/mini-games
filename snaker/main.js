@@ -15,7 +15,7 @@ class Puzzle {
 	_cells = Array(ROW * ROW).fill().map((_, i) => i);
 	_score = 0;
 	_data = [3,2,1,0];
-	_cookie = 88;
+	_cookie = -1;
 
 	init() {
 		if (!this._speed) {
@@ -23,6 +23,7 @@ class Puzzle {
 		}
 		$box.attr('class', this._direction.toLowerCase());
 		this.initCells();
+		this.dropNewCookie();
 		this.draw();
 		$score.text(this._score);
 
