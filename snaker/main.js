@@ -6,29 +6,38 @@ function getCell(index) {
 }
 
 const ROW = 30;
-let SPEED = 500;
 const CELL_WIDTH = 20;
 const CELL_GAP = 2;
 class Puzzle {
 	_timer = null;
-	_direction = 'RIGHT'
+	_direction = 'RIGHT';
+	_speed = 0;
 	_cells = Array(ROW * ROW).fill().map((_, i) => i);
 	_score = 0;
 	_data = [3,2,1,0];
 	_cookie = 88;
 
-	init(config = {}) {
-		SPEED = config.speed || SPEED;
+	init() {
+		if (!this._speed) {
+			this._speed = $('input[name=speed]:checked').val();
+		}
 		$box.attr('class', this._direction.toLowerCase());
 		this.initCells();
 		this.draw();
 		$score.text(this._score);
 
+		this.initTimer();
+	}
+
+	initTimer(speed) {
+		clearInterval(this._timer);
 		this._timer = setInterval(() => {
 			this.goStep();
 			this.draw();
-		}, SPEED);
+		}, speed || this._speed);
+	}
 
+	initAction() {
 		$(document).on('keydown', (event) => {
 			if (
 				event.key === 'ArrowUp' ||
@@ -36,34 +45,13 @@ class Puzzle {
 				event.key === 'ArrowLeft' ||
 				event.key === 'ArrowRight'
 			) {
-				// this._direction = event.key.substr('Arrow'.length).toUpperCase();
-				switch (event.key) {
-					case 'ArrowUp': {
-						if (this._direction !== 'DOWN') {
-							this._direction = 'UP';
-						}
-						break;
-					}
-					case 'ArrowDown': {
-						if (this._direction !== 'UP') {
-							this._direction = 'DOWN';
-						}
-						this._direction = 'DOWN';
-						break;
-					}
-					case 'ArrowLeft': {
-						if (this._direction !== 'RIGHT') {
-							this._direction = 'LEFT';
-						}
-						break;
-					}
-					case 'ArrowRight': {
-						if (this._direction !== 'LEFT') {
-							this._direction = 'RIGHT';
-						}
-						break;
-					}
+				const direction = event.key.substr('Arrow'.length).toUpperCase();
+				if (direction === this._direction) {
+					// Click the same direction key to add speed
+					this.goStep();
+					this.draw();
 				}
+				this._direction = direction;
 				$box.attr('class', this._direction.toLowerCase());
 			}
 		});
@@ -172,11 +160,8 @@ class Puzzle {
 $(function(){
 	const puzzle = new Puzzle();
 	$('#start').on('click', () => {
-		const speed = $('input[name=speed]:checked').val();
-		console.log(speed);
-		puzzle.init({
-			speed,
-		});
+		puzzle.init();
+		puzzle.initAction();
 		$('#start').hide();
 		$('#refresh').show();
 	});

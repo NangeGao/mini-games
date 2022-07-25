@@ -41,7 +41,18 @@
 	background-color: #309676;
 	border-color: #309676;
 	position: relative;
+	animation: head-wave 2s infinite linear;
 }
+
+@keyframes head-wave {
+	50% {
+		transform: scale(1.3);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
 .right .cell-snaker-head::before,
 .right .cell-snaker-head::after {
 	content: '';
