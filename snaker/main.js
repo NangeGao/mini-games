@@ -1,7 +1,3 @@
-const ROW = 30;
-const SPEED = 300;
-const CELL_WIDTH = 20;
-const CELL_GAP = 2;
 const $box = $('#wrapper');
 const $score = $('#score');
 
@@ -9,6 +5,10 @@ function getCell(index) {
 	return $box.find(`.cell[data-index=${index}]`);
 }
 
+const ROW = 30;
+let SPEED = 500;
+const CELL_WIDTH = 20;
+const CELL_GAP = 2;
 class Puzzle {
 	_timer = null;
 	_direction = 'RIGHT'
@@ -17,7 +17,8 @@ class Puzzle {
 	_data = [3,2,1,0];
 	_cookie = 88;
 
-	init() {
+	init(config = {}) {
+		SPEED = config.speed || SPEED;
 		$box.attr('class', this._direction.toLowerCase());
 		this.initCells();
 		this.draw();
@@ -144,7 +145,8 @@ class Puzzle {
 		if (nextStepIndex === this._cookie) {
 			this.dropNewCookie()
 
-			$score.text(++this._score);
+			this._score += 100;
+			$score.text(this._score);
 		} else {
 			this._data.pop();
 		}
@@ -169,5 +171,16 @@ class Puzzle {
 
 $(function(){
 	const puzzle = new Puzzle();
-	puzzle.init();
+	$('#start').on('click', () => {
+		const speed = $('input[name=speed]:checked').val();
+		console.log(speed);
+		puzzle.init({
+			speed,
+		});
+		$('#start').hide();
+		$('#refresh').show();
+	});
+	$('#refresh').on('click', () => {
+		location.reload();
+	});
 })
