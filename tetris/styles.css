@@ -1,0 +1,92 @@
+
+#main {
+	display: flex;
+}
+#wrapper {
+	border: 6px solid #ccc;
+	display: flex;
+	flex-wrap: wrap;
+	padding-bottom: 2px;
+	min-width: 200px;
+	min-height: 200px;
+}
+
+.cell {
+	flex-shrink: 0;
+	width: 30px;
+	height: 30px;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #999;
+	font-size: 30px;
+	margin: 2px 0 0 2px;
+	color: #fff;
+	border-radius: 1px;
+}
+
+.cell-cookie {
+	background-color: #f60;
+	border-color: #f60;
+	animation: jump-cookie 5s infinite linear;
+}
+.tile {
+	background-color: #4fbf78;
+	border-color: #4fbf78;
+}
+.square {
+	background-color: #6431b7;
+	border-color: #6431b7;
+}
+.vertical {
+	background-color: #4062f9;
+	border-color: #4062f9;
+}
+.horizon {
+	background-color: #e524d2;
+	border-color: #e524d2;
+}
+.boom {
+	background-color: gray;
+	border-color: gray;
+	animation: booming 0.5s infinite linear;
+}
+.cell-snaker-head {
+	background-color: #309676;
+	border-color: #309676;
+	position: relative;
+}
+
+@keyframes booming {
+	50% {
+		transform: scale(1.1);
+	}
+	100% {
+		transform: scale(0.2);
+		opacity: 0.1;
+	}
+}
+
+.score-wrapper {
+	padding-left: 50px;
+}
+#score {
+	color: red;
+}
+
+fieldset {
+	width: 300px;
+}
+fieldset > div {
+	line-height: 24px;
+}
+
+button {
+	font-size: 30px;
+	margin-top: 20px;
+}
+
+
+
